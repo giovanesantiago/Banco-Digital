@@ -1,6 +1,7 @@
-package contas;
+package back;
 
 
+import javax.swing.*;
 
 public abstract class Conta implements iConta{
     private static final int AGENCIA_PADRAO = 1;
@@ -50,12 +51,23 @@ public abstract class Conta implements iConta{
     }
 
     // Imprimir infos no extrato
-    protected void imprimirInfosComuns() {
+    protected void imprimirInfosComuns(String tipoConta) {
+        if(tipoConta.equals("cc")) {
+            JOptionPane.showMessageDialog(null,
+                    "Titular: " + this.cliente.getNome() +
+                            "\n" + "Agencia: " + this.agencia +
+                            "\n" + "Conta: " + this.numeroConta +
+                            "\n" + "Saldo: " + this.saldo,
+                    "=== Extrato Conta Corrente ===", JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipoConta.equals("cp")) {
+            JOptionPane.showMessageDialog(null,
+                    "Titular: " + this.cliente.getNome() +
+                            "\n" + "Agencia: " + this.agencia +
+                            "\n" + "Conta: " + this.numeroConta +
+                            "\n" + "Saldo: " + this.saldo,
+                    "=== Extrato Conta Poupança ===", JOptionPane.INFORMATION_MESSAGE);
+        }
 
-        System.out.println(String.format("Titular: %s", this.cliente.getNome()));
-        System.out.println(String.format("Agencia: %d", this.agencia));
-        System.out.println(String.format("Conta: %d", this.numeroConta));
-        System.out.println(String.format("Saldo: %.2f", this.saldo));
     }
 
 }

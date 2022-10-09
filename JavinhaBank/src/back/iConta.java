@@ -1,4 +1,4 @@
-package contas;
+package back;
 
 public interface iConta {
 

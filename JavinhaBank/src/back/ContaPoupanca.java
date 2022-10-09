@@ -1,4 +1,4 @@
-package contas;
+package back;
 
 public class ContaPoupanca extends Conta{
 
@@ -8,7 +8,6 @@ public class ContaPoupanca extends Conta{
 
     @Override
     public void imprimirExtrato() {
-        System.out.println("=== Extrato Conta Poupanca ===");
-        super.imprimirInfosComuns();
+        super.imprimirInfosComuns("cp");
     }
 }
